@@ -1,0 +1,36 @@
+$def with (pokes, userid)
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="static/css/list.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="userid" style="display: none">$userid</div>
+
+<div id="myDIV" class="header">
+  <h1><img src="/static/logo.png" width="40" height="40"></h1>
+  <input type="text" id="myInput" placeholder="Poke someone...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+  <input type="text" id="myText" placeholder="Write here...">
+  <input type="file" id="myFile"/>
+  <input type="time" id="myTime"/>
+  <input type="date" id="myDate"/>
+</div>
+
+<ol id="myOL">
+$for poke in pokes:
+	<li>
+		<poke>
+			<div><em>$poke.RNAME</em></div>
+			<div><small><b> • </b>$poke.PTIME<small></div>
+			<div><small>$poke.TEXTD[0:10]..</small></div>
+			<div style="display: none">$poke.POKEID</div>
+		</poke>
+	</li>
+</ol>
+
+</body>
+<script type="text/javascript" src="static/js/list.js"></script>
+</html>
